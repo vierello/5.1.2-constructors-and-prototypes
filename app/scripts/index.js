@@ -39,24 +39,27 @@ function expect(target) {
 // Only add code to *THIS* section!
 
 function Dog(dogInfo){
+  dogInfo = dogInfo || {};
   this.status = "normal";
+  this.color = dogInfo.color;
   this.hungry = true;
 }
 
 function Human(personInfo){
-  this.pet = function(newDogInfo){
-    newDogInfo.status = 'happy';
-    newDogInfo.color = 'red';
-    newDogInfo.hungry = false;
+  personInfo = personInfo || {};
+  this.pet = function(kepler){
+    kepler.status = 'happy';
+    kepler.hungry = false;
   }
-  this.feed = function(newDogInfo){
-    newDogInfo.hungry = false;
+  this.feed = function(dogInfo){
+    dogInfo.hungry = false;
+  }
+  this.cool = false;
+  if(personInfo.cool){
+    this.cool = personInfo.cool;
   }
 }
 
-
-// console.log('2', dog.status);
-// }
 
 
 //        __
